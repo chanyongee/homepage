@@ -3,7 +3,7 @@ export default {
   target: 'static',
   server: { port: 3001 },
   router: {
-    base: '/',
+    base: '/homepage/',
   },
   styleResources: {
     scss: ['./assets/scss/index.scss'],
