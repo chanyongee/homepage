@@ -1,0 +1,83 @@
+<template>
+  <div class="content-wrapper">
+    <h1>
+      <div class="title1">
+        {{ data.title1 }}
+      </div>
+      <div class="title2">
+        {{ data.title2 }}
+      </div>
+    </h1>
+    <div class="desc" v-html="data.desc"></div>
+    <div class="sub-desc" v-html="data.subDesc">
+      {{ data.subDesc }}
+    </div>
+    <h2>・ {{ data.diagramName }}</h2>
+    <img class="diagram" :src="require(`@@/assets/images/${data.diagram}`)" alt="" />
+  </div>
+</template>
+
+<script>
+  export default {
+    props: {
+      data: {
+        type: Object,
+        default: () => {},
+      },
+    },
+  }
+</script>
+
+<style lang="scss" scoped>
+  .content-wrapper {
+    h1 {
+      font-size: 3.125rem;
+
+      .title1 {
+        font-family: 'Spoqa Thin';
+        font-weight: 100;
+      }
+
+      .title2 {
+        font-family: 'Spoqa Medium';
+        font-weight: 500;
+        color: rgba(121, 135, 89, 1);
+        margin-bottom: 1.875rem;
+      }
+    }
+
+    .desc {
+      font-weight: 700;
+      font-family: 'Spoqa Bold';
+      font-size: 30px;
+      line-height: 40px;
+      margin-bottom: 1.875rem;
+    }
+
+    .sub-desc {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 25px;
+      color: rgba(102, 102, 102, 1);
+      width: 80%;
+    }
+
+    h2 {
+      margin-top: 3.5rem;
+    }
+
+    img.diagram {
+      display: block;
+      margin: 0 auto;
+      width: 80%;
+    }
+  }
+
+  @include media('<desktop') {
+    .content-wrapper {
+      img.diagram {
+        width: 100%;
+      }
+    }
+  }
+</style>
