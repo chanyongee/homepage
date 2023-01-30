@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[19],{430:function(e,n,o){"use strict";o.r(n),n.default={title:"재해영향평가",descriptions:["개발사업의 시행이전에 사업구역의 홍수나 산사태 등 자연재해 유발요인을 예측 및 분석하고<br/>이에 대한 저감방안과 저감대책을 마련하여 재해영향을 최소화 하기 위한 제도"],cover:"재해영향평가.jpg"}}}]);
