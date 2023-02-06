@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/story/disaster/small-scale", {data:[{data:{title:"소규모재해영향평가",descriptions:["재해영향평가에 해당되는 개발사업 중 특정 규모의 사업에 대해 평가를 실시하되 각종 예측, 분석 항목 중 일부를 축소하여 절차를 간소화 한 제도"],cover:"사전재해영향성검토.jpg"}}],fetch:{},mutations:[]});
