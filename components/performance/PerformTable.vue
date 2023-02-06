@@ -68,9 +68,10 @@
       }
 
       td {
-        padding: 0.5rem 4rem;
+        padding: 0.5rem;
         border: 1px solid #ddd;
         text-align: center;
+        min-width: 9.375rem;
       }
     }
   }

@@ -9,7 +9,7 @@
 <script>
   import { mapMutations } from 'vuex'
   import menuList from '@@/assets/data/menuList'
-
+  import { throttle } from 'lodash'
   export default {
     data() {
       return {
@@ -17,7 +17,7 @@
       }
     },
     methods: {
-      ...mapMutations(['setBreadcrumbs']),
+      ...mapMutations(['setBreadcrumbs', 'setIsPhone']),
       findBreadcrumbs(path) {
         const breadcrumbs = path.split('/').slice(1)
         const breadcrumbsKo = []
@@ -33,6 +33,12 @@
         })
         this.setBreadcrumbs(breadcrumbsKo)
       },
+      handleResize() {
+        this.setIsPhone(window.matchMedia('(max-width: 767px)').matches)
+      },
+    },
+    beforeMount() {
+      window.addEventListener('resize', throttle(this.handleResize, 300))
     },
     mounted() {
       this.findBreadcrumbs(this.$route.path)

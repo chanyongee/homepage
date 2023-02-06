@@ -13,5 +13,6 @@ export default {
       ],
     },
   ],
-  cover: '환경영향평가절차도.png',
+  diagramName: '환경영향평가 절차도',
+  diagram: '환경영향평가절차도.png',
 }

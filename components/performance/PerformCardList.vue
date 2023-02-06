@@ -46,10 +46,8 @@
     .card {
       display: flex;
       flex-direction: column;
-      flex-basis: calc(30% - 4rem);
-      padding-top: 2.5rem;
-      padding-bottom: 1.5rem;
-      padding-left: 2.5rem;
+      flex-basis: calc(33.3% - 4rem);
+      padding: 2.5rem 2.5rem 1.5rem 2.5rem;
       opacity: 0;
       transform: translate3d(0, 100px, 0);
       transition: border 0.3s ease, opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
@@ -102,6 +100,11 @@
           opacity: 0.7;
         }
       }
+    }
+  }
+
+  @include media('<desktop') {
+    .card-list {
     }
   }
 </style>

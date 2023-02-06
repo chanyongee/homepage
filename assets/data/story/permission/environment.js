@@ -44,5 +44,6 @@ export default {
       ],
     },
   ],
-  cover: '환경인허가절차도.jpg',
+  diagram: 'diagram/환경인허가절차도.png',
+  diagramName: '환경인허가 절차도',
 }

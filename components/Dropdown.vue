@@ -20,11 +20,17 @@
     },
     methods: {
       getPath(endpoint) {
+        if (!endpoint) {
+          return
+        }
         const current = this.$route.path.split('/').slice(1)
         current[current.length - 1] = endpoint
         return '/' + current.join('/')
       },
       moveTo(path) {
+        if (!path) {
+          return
+        }
         this.$emit('closeDropdown')
         this.$router.push(path)
       },

@@ -96,8 +96,9 @@
       position: absolute;
       top: 0.5rem;
       left: 0.5rem;
-      width: 10rem;
+      width: 15rem;
       text-align: center;
+      font-weight: 600;
 
       sub {
         color: skyblue;
@@ -128,6 +129,7 @@
       display: flex;
       gap: 1.5rem;
       margin-top: 1.25rem;
+      align-items: center;
 
       div {
         display: flex;

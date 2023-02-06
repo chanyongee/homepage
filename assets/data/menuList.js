@@ -34,21 +34,14 @@ export default [
         children: [
           { name: '도시계획', path: 'urban-planning' },
           { name: '조경설계', path: 'landscape' },
-          { name: '전기설계 및 감리', path: 'eletric' },
+          { name: '전기설계 및 감리' },
           { name: '토목설계 및 감리', path: 'civil' },
           { name: '안전진단', path: 'safety-diagnosis' },
         ],
       },
       {
         name: '종합건설',
-        path: 'construction',
-        defaultPath: '/story/construction/civil',
-        children: [
-          { name: '토목공사', path: 'civil' },
-          { name: '건축공사', path: 'construction' },
-          { name: '조경', path: 'landscape' },
-          { name: '전기', path: 'electric' },
-        ],
+        children: [{ name: '토목공사' }, { name: '건축공사' }, { name: '조경' }, { name: '전기' }],
       },
       {
         name: '환경공사관리(인허가)',

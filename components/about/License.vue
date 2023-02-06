@@ -7,12 +7,10 @@
           <tr>
             <th>구분</th>
             <th>등록번호</th>
-            <th>발행처</th>
           </tr>
           <tr v-for="license in content[0]" :key="license.name">
             <td>{{ license.name }}</td>
             <td>{{ license.no }}</td>
-            <td>{{ license.from }}</td>
           </tr>
         </tbody>
       </table>

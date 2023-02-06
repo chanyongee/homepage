@@ -21,7 +21,10 @@
             class="grandchild"
             :class="{ 'one-column': selectedMenu.oneColumn }"
           >
-            <nuxt-link :to="getPath([selectedMenu.path, child.path, grandchild.path])">
+            <nuxt-link
+              :is="grandchild.path ? 'nuxt-link' : 'span'"
+              :to="getPath([selectedMenu.path, child.path, grandchild.path])"
+            >
               {{ grandchild.name }}
             </nuxt-link>
           </div>
@@ -123,6 +126,10 @@
             &.one-column {
               color: #000;
               font-size: 1rem;
+            }
+
+            span {
+              color: #666666;
             }
           }
         }

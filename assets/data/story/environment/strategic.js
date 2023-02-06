@@ -13,5 +13,4 @@ export default {
       ],
     },
   ],
-  cover: '전략환경영향평가.png',
 }

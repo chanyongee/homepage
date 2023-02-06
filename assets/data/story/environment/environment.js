@@ -13,5 +13,4 @@ export default {
       ],
     },
   ],
-  cover: '환경평가소개.jpg',
 }
