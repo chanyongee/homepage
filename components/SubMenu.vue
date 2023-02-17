@@ -74,6 +74,7 @@
     transition: background-color 0.5s ease;
     -webkit-transition: background-color 0.5s ease;
     opacity: 0;
+    z-index: 2;
 
     &.show {
       opacity: 1;

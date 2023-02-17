@@ -91,4 +91,29 @@
       }
     }
   }
+
+  @include media('<desktop') {
+    .diagram-img {
+      width: 80%;
+    }
+  }
+
+  @include media('<tablet') {
+    .desc-list,
+    .sub-item-list {
+      font-size: 1rem;
+      line-height: 1.5625rem;
+    }
+
+    .diagram-img {
+      width: 100%;
+    }
+
+    .button-wrapper {
+      button {
+        width: 10rem;
+        height: 2.5rem;
+      }
+    }
+  }
 </style>

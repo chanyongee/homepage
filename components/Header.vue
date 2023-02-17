@@ -6,10 +6,7 @@
   >
     <div class="header-top" :class="{ 'menu-opened': menuOpened }">
       <div class="logo-wrapper" :class="{ white: menuOpened }">
-        <nuxt-link to="/" tag="a" class="logo">
-          <Logo />
-          <span>(주)좋은이엔지</span>
-        </nuxt-link>
+        <Logo />
       </div>
       <div class="menu-list" @mouseenter="onMouseover">
         <div
@@ -37,7 +34,7 @@
 <script>
   import menuList from '@@/assets/data/menuList'
   import SubMenu from '@@/components/SubMenu'
-  import Logo from '@@/assets/icons/logo.svg?inline'
+  import Logo from '@@/components/common/Logo'
   import Breadcrumbs from '@@/components/Breadcrumbs'
 
   export default {
@@ -82,12 +79,11 @@
 </script>
 
 <style lang="scss" scoped>
-  @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
   .header {
     width: 100%;
     position: absolute;
     top: 0;
-    z-index: 1;
+    z-index: 2;
     height: $top-area-height;
     transition: background-color 0.5s ease;
     -webkit-transition: background-color 0.5s ease;
@@ -95,12 +91,6 @@
 
     &.menu-opened {
       background-color: $default-white;
-    }
-
-    &.main-page {
-      .menu-item {
-        color: $default-black !important;
-      }
     }
 
     &-top {
@@ -120,27 +110,6 @@
         padding: 1rem 5rem;
         white-space: nowrap;
         justify-content: flex-end;
-
-        .logo {
-          display: flex;
-          flex-direction: column;
-
-          &::v-deep {
-            svg {
-              path:not(:first-child) {
-                fill: $default-black;
-              }
-            }
-          }
-
-          span {
-            //font-weight: 900;
-            font-family: 'Jua';
-            text-align: center;
-            letter-spacing: 0.375rem;
-            margin-top: -0.125rem;
-          }
-        }
       }
 
       .menu-list {
@@ -158,10 +127,9 @@
           text-align: center;
           margin: auto 0;
           cursor: pointer;
-          color: white;
 
           &.hovered {
-            border-bottom: 5px solid #394912;
+            border-bottom: 5px solid #7f8c8d;
           }
         }
       }
@@ -191,41 +159,33 @@
       min-height: 25rem;
       position: relative;
 
-      &.menu-opened {
-        .menu-item {
-          color: $default-black !important;
-        }
-      }
-
       .header-top {
         .logo-wrapper {
           .logo {
             &::v-deep {
               svg {
                 path:not(:first-child) {
-                  fill: $default-white;
+                  fill: #5f6a6a;
                 }
               }
-              span {
-                color: $default-white;
-              }
+            }
+
+            span {
+              color: #5f6a6a;
             }
           }
 
-          &.white {
-            .logo {
-              &::v-deep {
-                svg {
-                  path:not(:first-child) {
-                    fill: $default-black;
-                  }
-                }
-                span {
-                  color: $default-black;
-                }
-              }
-            }
-          }
+          // &.white {
+          //   .logo {
+          //     &::v-deep {
+          //       svg {
+          //         path:not(:first-child) {
+          //           fill: $default-black;
+          //         }
+          //       }
+          //     }
+          //   }
+          // }
         }
       }
     }

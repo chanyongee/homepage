@@ -2,11 +2,11 @@
   <Content>
     <section class="wrapper">
       <section class="left">
-        <h2 v-html="content.title"></h2>
+        <h1 v-html="content.title"></h1>
         <div v-html="content.contents"></div>
         <sub>{{ content.signature }}</sub>
       </section>
-      <section class="right">
+      <section v-if="!isPhone" class="right">
         <img :src="require('@@/assets/images/about_us.jpg')" alt="" />
       </section>
     </section>
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   import Content from '@@/components/common/Content'
 
   export default {
@@ -25,6 +26,9 @@
         type: Object,
         default: () => {},
       },
+    },
+    computed: {
+      ...mapState(['isPhone']),
     },
   }
 </script>
@@ -38,9 +42,9 @@
       flex-basis: 50%;
       flex-shrink: 0;
 
-      h2 {
-        font-weight: 500;
-        font-size: 2.5rem;
+      h1 {
+        font-weight: 700;
+        font-size: 2rem;
         line-height: 1.3;
         letter-spacing: -1px;
       }
@@ -69,6 +73,22 @@
         object-fit: cover;
         width: 100%;
         height: 90%;
+      }
+    }
+  }
+
+  @include media('<tablet') {
+    .wrapper {
+      .left {
+        flex-basis: 100%;
+        h1 {
+          font-size: 1.5rem;
+          font-weight: 700;
+        }
+
+        div {
+          font-size: 1rem;
+        }
       }
     }
   }

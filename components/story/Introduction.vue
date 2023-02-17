@@ -34,11 +34,15 @@
       font-size: 3.125rem;
 
       .title1 {
+        font-size: 3.125rem;
+
         font-family: 'Spoqa Thin';
         font-weight: 100;
       }
 
       .title2 {
+        font-size: 3.125rem;
+
         font-family: 'Spoqa Medium';
         font-weight: 500;
         color: rgba(121, 135, 89, 1);
@@ -56,7 +60,7 @@
 
     .sub-desc {
       font-weight: 500;
-      font-size: 18px;
+      font-size: 1.125rem;
       line-height: 25px;
       color: rgba(102, 102, 102, 1);
       width: 80%;
@@ -73,11 +77,40 @@
     }
   }
 
-  @include media('<desktop') {
+  @include media('<tablet') {
     .content-wrapper {
+      h1 {
+        margin-bottom: 0rem;
+
+        .title1 {
+          font-size: 2rem;
+        }
+        .title2 {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+        }
+      }
+
+      .desc {
+        font-size: 1.125rem;
+        line-height: 2rem;
+        margin-bottom: 1rem;
+        letter-spacing: -1px;
+      }
+
+      .sub-desc {
+        font-size: 0.9rem;
+        width: 100%;
+      }
+
       img.diagram {
         width: 100%;
       }
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin-top: 2rem !important;
     }
   }
 </style>

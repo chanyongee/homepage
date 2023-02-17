@@ -20,4 +20,10 @@
     font-size: 12px;
     text-align: center;
   }
+
+  @include media('<tablet') {
+    footer {
+      line-height: 1.25rem;
+    }
+  }
 </style>

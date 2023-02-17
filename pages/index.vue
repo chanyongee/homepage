@@ -1,6 +1,5 @@
 <template>
   <div class="home-background">
-    <img class="hamburger" :src="hamburger" alt="" />
     <video :src="video" autoplay muted loop></video>
     <section id="section1">
       <h1>
@@ -15,13 +14,11 @@
 
 <script>
   import video from '@@/assets/park.mp4'
-  import hamburger from '@@/assets/icons/bars-solid.svg?inline'
 
   export default {
     data() {
       return {
         video,
-        hamburger,
       }
     },
   }
@@ -76,6 +73,15 @@
       video {
         width: auto;
         height: 100%;
+      }
+    }
+  }
+
+  @include media('<tablet') {
+    .home-background {
+      #section1 h1 {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
       }
     }
   }

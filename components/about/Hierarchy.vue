@@ -19,6 +19,12 @@
     margin-bottom: 4rem;
   }
   img {
-    width: 100%;
+    width: 70%;
+  }
+
+  @include media('<tablet') {
+    img {
+      width: 100%;
+    }
   }
 </style>

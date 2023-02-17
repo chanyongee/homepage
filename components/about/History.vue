@@ -37,4 +37,14 @@
       margin-bottom: 3rem;
     }
   }
+
+  @include media('<tablet') {
+    .wrapper {
+      margin: 0;
+
+      h1 {
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
 </style>

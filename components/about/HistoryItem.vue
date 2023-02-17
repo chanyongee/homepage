@@ -76,4 +76,33 @@
       }
     }
   }
+
+  @include media('<tablet') {
+    .history-item {
+      gap: 1rem;
+
+      .year-wrapper {
+        gap: 1rem;
+      }
+
+      .year {
+        font-size: 1.5rem;
+      }
+
+      .line {
+        flex-grow: 0;
+      }
+
+      ul {
+        flex-grow: 1;
+        li {
+          .desc-list {
+            font-size: 1rem;
+            line-height: 2rem;
+            letter-spacing: -1.5px;
+          }
+        }
+      }
+    }
+  }
 </style>

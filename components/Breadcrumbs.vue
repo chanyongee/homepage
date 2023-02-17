@@ -61,11 +61,11 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    background-color: #205f83;
+    background-color: #7f8c8d;
     height: 3rem;
     width: 80%;
     display: flex;
-    z-index: -1;
+    z-index: 1;
 
     &-item {
       color: $default-white;
@@ -74,6 +74,18 @@
       align-items: center;
       min-width: 16rem;
       position: relative;
+    }
+  }
+
+  @include media('<tablet') {
+    .nav {
+      font-size: 0.875rem;
+      height: 2.5rem;
+      justify-content: space-around;
+      width: 100%;
+      &-item {
+        min-width: 30%;
+      }
     }
   }
 </style>

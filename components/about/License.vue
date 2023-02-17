@@ -1,7 +1,7 @@
 <template>
   <Content>
     <section>
-      <h2>면허 현황</h2>
+      <h1>면허 현황</h1>
       <table class="table">
         <tbody>
           <tr>

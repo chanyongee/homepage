@@ -1,24 +1,41 @@
 <template>
   <div>
-    <table>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th v-for="th in data.headers" :key="th">
+              {{ th }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="tds in selectedBody" :key="tds[0] + tds[1]">
+            <td v-for="tdx in tds.length" :key="tdx">{{ tds[tdx - 1] }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- <table v-else-if="data.headers.length === 2" class="two-headers">
       <thead>
-        <tr>
-          <th v-for="th in data.headers" :key="th">
-            {{ th }}
-          </th>
+        <tr v-for="th in data.headers" :key="th">
+          <th>{{ th }}</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="tds in selectedBody" :key="tds[0] + tds[1]">
-          <td v-for="tdx in tds.length" :key="tdx">{{ tds[tdx - 1] }}</td>
-        </tr>
+        <template v-for="tds in selectedBody">
+          <tr v-for="tdx in tds.length" :key="tdx">
+            <td>{{ tds[tdx - 1] }}</td>
+          </tr>
+        </template>
       </tbody>
-    </table>
-    <pagination :page-count="pageCount" @changePage="changePage" />
+    </table> -->
+    <pagination :page-count="pageCount" :records="data.body.length" @changePage="changePage" />
   </div>
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   import Pagination from '@@/components/common/Pagination'
 
   export default {
@@ -33,11 +50,14 @@
     },
     data() {
       return {
-        rowPerPage: 15,
         selectedPage: 1,
       }
     },
     computed: {
+      ...mapState(['isPhone']),
+      rowPerPage() {
+        return this.isPhone ? 10 : 15
+      },
       pageCount() {
         return Math.ceil(this.data.body.length / this.rowPerPage)
       },
@@ -56,22 +76,58 @@
 </script>
 
 <style lang="scss" scoped>
-  table {
-    border-top: 2px solid #126bb1;
-    width: 100%;
+  .table-wrapper {
+    table {
+      border-top: 2px solid #126bb1;
+      width: 100%;
 
-    tr {
-      th {
-        background: #f3f7fb;
-        border: 1px solid #ddd;
-        padding: 1rem 0;
+      tr {
+        th {
+          background: #f3f7fb;
+          border: 1px solid #ddd;
+          padding: 1rem 0;
+        }
+
+        td {
+          padding: 0.5rem;
+          border: 1px solid #ddd;
+          text-align: center;
+          min-width: 9.375rem;
+        }
       }
+    }
+  }
 
-      td {
-        padding: 0.5rem;
-        border: 1px solid #ddd;
-        text-align: center;
-        min-width: 9.375rem;
+  @include media('<tablet') {
+    .table-wrapper {
+      overflow: auto;
+
+      table {
+        font-size: 0.9rem;
+
+        tr {
+          th {
+            padding: 0.5rem 0;
+          }
+          td {
+            padding: 0.25rem;
+            min-width: 6rem;
+            white-space: nowrap;
+          }
+        }
+
+        &.two-headers {
+          tr {
+            th {
+              padding: 0;
+            }
+            &:nth-child(2n-1) {
+              td {
+                border-top: 2px solid #ddd;
+              }
+            }
+          }
+        }
       }
     }
   }

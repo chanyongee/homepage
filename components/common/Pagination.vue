@@ -1,40 +1,39 @@
 <template>
-  <div>
-    <div>
-      <paginate
-        :page-count="pageCount"
-        :page-range="pageRange"
-        :click-handler="changePage"
-        :prev-text="'<'"
-        :next-text="'>'"
-        :container-class="'pagination'"
-        :page-class="'page-item'"
-      ></paginate>
-    </div>
-  </div>
+  <paginate v-model="selectedPage" :per-page="isPhone ? 10 : 15" :records="records" :options="options" />
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   export default {
     props: {
-      pageCount: {
+      records: {
         type: Number,
         default: 0,
-      },
-      pageRange: {
-        type: Number,
-        default: 5,
       },
     },
     data() {
       return {
-        selectPage: 1,
-        pageCount: 15,
+        selectedPage: 1,
+        options: {
+          chunk: 5,
+          edgeNavigation: false,
+          texts: { count: '' },
+        },
       }
+    },
+    computed: {
+      ...mapState(['isPhone']),
     },
     methods: {
       changePage: function (pageNum) {
         this.$emit('changePage', pageNum)
+      },
+    },
+    watch: {
+      selectedPage(newVal, oldVal) {
+        if (newVal !== oldVal) {
+          this.changePage(newVal)
+        }
       },
     },
   }
@@ -79,5 +78,15 @@
 
   .pagination li.active a {
     color: $default-black;
+  }
+
+  @include media('<tablet') {
+    .pagination {
+      li {
+        min-width: unset;
+        flex-basis: auto;
+        flex-grow: 1;
+      }
+    }
   }
 </style>

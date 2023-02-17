@@ -1,3 +1,3 @@
 import Vue from 'vue'
-import Paginate from 'vuejs-paginate'
-Vue.component('paginate', Paginate)
+import Pagination from 'vue-pagination-2'
+Vue.component('paginate', Pagination)

@@ -57,5 +57,19 @@
     justify-content: center;
     align-items: center;
     box-shadow: 3px 3px 7px rgb(0 0 0 / 10%);
+
+    li {
+      cursor: pointer;
+    }
+  }
+
+  @include media('<tablet') {
+    .dropdown {
+      align-items: flex-start;
+
+      li {
+        letter-spacing: -2px;
+      }
+    }
   }
 </style>

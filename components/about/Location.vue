@@ -138,4 +138,30 @@
       }
     }
   }
+
+  @include media('<tablet') {
+    .map-wrapper {
+      line-height: 1rem;
+
+      .info-window {
+        width: 10rem;
+
+        div {
+          font-size: 1rem;
+        }
+
+        sub {
+          font-size: 0.75rem;
+        }
+      }
+    }
+
+    .head {
+      &-tels {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+    }
+  }
 </style>

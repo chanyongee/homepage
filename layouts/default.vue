@@ -1,13 +1,14 @@
 <template>
   <div id="app" class="app">
-    <Header />
+    <Header v-if="!isPhone" />
+    <MobileHeader v-else />
     <Nuxt />
     <Footer v-if="$route.name !== 'index'" />
   </div>
 </template>
 
 <script>
-  import { mapMutations } from 'vuex'
+  import { mapState, mapMutations } from 'vuex'
   import menuList from '@@/assets/data/menuList'
   import { throttle } from 'lodash'
   export default {
@@ -15,6 +16,9 @@
       return {
         menuList,
       }
+    },
+    computed: {
+      ...mapState(['isPhone']),
     },
     methods: {
       ...mapMutations(['setBreadcrumbs', 'setIsPhone']),
@@ -42,6 +46,7 @@
     },
     mounted() {
       this.findBreadcrumbs(this.$route.path)
+      this.handleResize()
     },
     watch: {
       $route(to) {
@@ -83,8 +88,13 @@
     src: url('../assets/fonts/Gugi-Regular.ttf') format('truetype');
   }
 
+  html {
+    font-size: 16px;
+  }
+
   * {
     font-family: Spoqa;
+    font-weight: 400;
     color: $default-black;
     box-sizing: border-box;
   }
@@ -115,5 +125,13 @@
     font-weight: 600;
     line-height: 3.75rem;
     letter-spacing: -0.0063rem;
+  }
+
+  @include media('<tablet') {
+    h1 {
+      font-size: 1.5rem;
+      line-height: 2rem;
+      margin: 0.5rem 0 0.75rem 0;
+    }
   }
 </style>

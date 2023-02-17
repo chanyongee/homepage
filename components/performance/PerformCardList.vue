@@ -1,6 +1,6 @@
 <template>
   <ul class="card-list">
-    <li v-for="(desc, num) in body" :key="desc[0]" class="card" :class="{ fadeIn }">
+    <li v-for="(desc, num) in body" :key="num" class="card" :class="{ fadeIn }" ref="card">
       <span class="num">{{ num + 1 }}</span>
       <h3 class="title">{{ desc[0] }}</h3>
       <ul class="desc-list">
@@ -32,6 +32,20 @@
     },
     mounted() {
       this.fadeIn = true
+      const io = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            console.log('intersect')
+            entry.target.className = 'card visible'
+          } else {
+            entry.target.className = 'card'
+          }
+        })
+      })
+      this.$refs.card.forEach(card => {
+        // console.log(card)
+        io.observe(card)
+      })
     },
   }
 </script>
@@ -49,10 +63,19 @@
       flex-basis: calc(33.3% - 4rem);
       padding: 2.5rem 2.5rem 1.5rem 2.5rem;
       opacity: 0;
-      transform: translate3d(0, 100px, 0);
-      transition: border 0.3s ease, opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      transform: translate3d(0, -3.125rem, 0);
+      transition: border 0.3s ease, opacity 2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
         transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       border: 1px solid $grey;
+      box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 15%);
+      min-height: 24.25rem;
+
+      opacity: 0;
+
+      &.visible {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
 
       &.fadeIn {
         opacity: 1;
@@ -61,6 +84,7 @@
 
       &:hover {
         border: 1px solid #00b4ef;
+        box-shadow: 0px 0px 15px 0px rgb(0 180 239 / 15%);
 
         .title {
           border-top: 1px solid #00b4ef;
@@ -103,8 +127,15 @@
     }
   }
 
-  @include media('<desktop') {
+  @include media('<tablet') {
     .card-list {
+      gap: 0.5rem;
+
+      .card {
+        flex-basis: 100%;
+        min-height: unset;
+        padding: 2rem;
+      }
     }
   }
 </style>
