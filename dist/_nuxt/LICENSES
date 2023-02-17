@@ -26,8 +26,8 @@
  * Released under the MIT License.
  */
 
-/*!
- * vuex v3.6.2
- * (c) 2021 Evan You
+/**
+ * vuex v2.5.0
+ * (c) 2017 Evan You
  * @license MIT
  */
