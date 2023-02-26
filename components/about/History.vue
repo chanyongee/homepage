@@ -2,7 +2,7 @@
   <Content>
     <div class="wrapper">
       <h1>
-        (주)좋은이엔지가
+        ㈜좋은이엔지가
         <br />
         걸어온 발자취입니다.
       </h1>

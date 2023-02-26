@@ -4,7 +4,7 @@
     <div class="map-wrapper">
       <div id="map"></div>
       <a class="info-window" :href="url" target="_blank">
-        <div>(주)좋은이엔지</div>
+        <div>㈜좋은이엔지</div>
         <sub>네이버지도로 보기</sub>
       </a>
     </div>

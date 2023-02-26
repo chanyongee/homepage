@@ -127,11 +127,17 @@
     letter-spacing: -0.0063rem;
   }
 
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+    font-weight: 600;
+  }
+
   @include media('<tablet') {
     h1 {
       font-size: 1.5rem;
-      line-height: 2rem;
-      margin: 0.5rem 0 0.75rem 0;
+      line-height: 2.5rem;
     }
   }
 </style>

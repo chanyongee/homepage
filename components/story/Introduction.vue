@@ -30,23 +30,24 @@
 
 <style lang="scss" scoped>
   .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
     h1 {
       font-size: 3.125rem;
 
       .title1 {
         font-size: 3.125rem;
-
         font-family: 'Spoqa Thin';
         font-weight: 100;
       }
 
       .title2 {
         font-size: 3.125rem;
-
         font-family: 'Spoqa Medium';
         font-weight: 500;
         color: rgba(121, 135, 89, 1);
-        margin-bottom: 1.875rem;
       }
     }
 
@@ -55,7 +56,6 @@
       font-family: 'Spoqa Bold';
       font-size: 30px;
       line-height: 40px;
-      margin-bottom: 1.875rem;
     }
 
     .sub-desc {
@@ -64,10 +64,6 @@
       line-height: 25px;
       color: rgba(102, 102, 102, 1);
       width: 80%;
-    }
-
-    h2 {
-      margin-top: 3.5rem;
     }
 
     img.diagram {
@@ -79,22 +75,20 @@
 
   @include media('<tablet') {
     .content-wrapper {
-      h1 {
-        margin-bottom: 0rem;
+      gap: 1rem;
 
+      h1 {
         .title1 {
           font-size: 2rem;
         }
         .title2 {
           font-size: 2rem;
-          margin-bottom: 1rem;
         }
       }
 
       .desc {
         font-size: 1.125rem;
-        line-height: 2rem;
-        margin-bottom: 1rem;
+        line-height: 1.75rem;
         letter-spacing: -1px;
       }
 
@@ -110,7 +104,6 @@
 
     h2 {
       font-size: 1.25rem;
-      margin-top: 2rem !important;
     }
   }
 </style>

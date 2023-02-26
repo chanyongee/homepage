@@ -1,7 +1,7 @@
 <template>
   <nuxt-link to="/" tag="a" class="logo">
     <Logo />
-    <span>(주)좋은이엔지</span>
+    <span>㈜좋은이엔지</span>
   </nuxt-link>
 </template>
 

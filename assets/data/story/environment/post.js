@@ -13,5 +13,4 @@ export default {
       ],
     },
   ],
-  cover: '사후환경영향조사.jpg',
 }

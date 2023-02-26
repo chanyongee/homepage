@@ -35,7 +35,7 @@
 
   @include media('<desktop') {
     .content {
-      padding: 1rem 2rem;
+      padding: 3rem 2rem;
     }
   }
 
@@ -43,7 +43,7 @@
     .content {
       padding: 1rem;
       font-size: 1rem;
-      padding-top: 8rem;
+      padding-top: 8.5rem;
 
       h1 {
         margin-bottom: 1rem;

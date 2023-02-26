@@ -1,6 +1,6 @@
 <template>
-  <ul class="card-list">
-    <li v-for="(desc, num) in body" :key="num" class="card" :class="{ fadeIn }" ref="card">
+  <!-- <ul class="card-list">
+    <li v-for="(desc, num) in body" :key="num" class="card" :class="{ isPhone }" ref="card">
       <span class="num">{{ num + 1 }}</span>
       <h3 class="title">{{ desc[0] }}</h3>
       <ul class="desc-list">
@@ -9,10 +9,27 @@
         </li>
       </ul>
     </li>
+  </ul> -->
+  <ul class="card-list">
+    <li v-for="(desc, num) in body" :key="num" class="card" :class="{ isPhone }" ref="card">
+      <h3 class="title">{{ desc[0] }}</h3>
+      <ul class="desc-list">
+        <li class="desc">
+          {{ desc[1] }}
+        </li>
+        <li class="desc" v-for="index in desc.length - 3" :key="index">
+          {{ `${data.headers[index + 1]}: ${desc[index + 1]}` }}
+        </li>
+        <li class="desc">
+          {{ desc[4] }}
+        </li>
+      </ul>
+    </li>
   </ul>
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   export default {
     props: {
       data: {
@@ -21,29 +38,23 @@
       },
     },
     computed: {
+      ...mapState(['isPhone']),
       body() {
         return this.data.body
       },
     },
-    data() {
-      return {
-        fadeIn: false,
-      }
-    },
     mounted() {
-      this.fadeIn = true
-      const io = new IntersectionObserver((entries, observer) => {
+      const isPhone = this.isPhone ? ' isPhone' : ''
+      const io = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            console.log('intersect')
-            entry.target.className = 'card visible'
+            entry.target.className = 'card visible' + isPhone
           } else {
-            entry.target.className = 'card'
+            entry.target.className = 'card' + isPhone
           }
         })
       })
       this.$refs.card.forEach(card => {
-        // console.log(card)
         io.observe(card)
       })
     },
@@ -60,7 +71,7 @@
     .card {
       display: flex;
       flex-direction: column;
-      flex-basis: calc(33.3% - 4rem);
+      flex-basis: calc(33.3% - 4rem / 3);
       padding: 2.5rem 2.5rem 1.5rem 2.5rem;
       opacity: 0;
       transform: translate3d(0, -3.125rem, 0);
@@ -77,19 +88,14 @@
         transform: translate3d(0, 0, 0);
       }
 
-      &.fadeIn {
-        opacity: 1;
-        transform: translateZ(0);
-      }
+      // &:not(.isPhone):hover {
+      //   border: 1px solid #00b4ef;
+      //   box-shadow: 0px 0px 15px 0px rgb(0 180 239 / 15%);
 
-      &:hover {
-        border: 1px solid #00b4ef;
-        box-shadow: 0px 0px 15px 0px rgb(0 180 239 / 15%);
-
-        .title {
-          border-top: 1px solid #00b4ef;
-        }
-      }
+      //   .title {
+      //     border-top: 1px solid #00b4ef;
+      //   }
+      // }
 
       .num {
         font-weight: 700;
@@ -97,13 +103,13 @@
       }
 
       .title {
-        margin-top: 0.567vw;
         padding-top: 1.587vw;
+        padding-bottom: 0.5rem;
         padding-left: 0.5rem;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         font-weight: 700;
         font-size: 1.5rem;
-        min-height: 3.75rem;
+        min-height: 3.5rem;
         word-break: keep-all;
         transition: border-top 0.3s ease;
       }
@@ -113,6 +119,7 @@
         font-size: 0.875rem;
         color: rgba(0, 0, 0, 0.5);
         padding-left: 0.5rem;
+        margin-top: 1.5rem;
       }
 
       .img-wrapper {

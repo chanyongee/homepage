@@ -5,7 +5,7 @@ export default {
   ],
   subItems: [
     {
-      title: '',
+      title: '사업범위',
       descriptions: [
         '수질환경 설계 및 시공, 감리',
         '수질, 대기 오염방지시설 설계시공',
@@ -17,5 +17,6 @@ export default {
       ],
     },
   ],
-  cover: 'diagram/환경인허가절차도.png',
+  diagram: 'diagram/환경인허가절차도.png',
+  diagramName: '환경인・허가 절차도',
 }
