@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/story/disaster/disaster", {data:[{data:{title:"재해영향평가",descriptions:["개발사업의 시행이전에 사업구역의 홍수나 산사태 등 자연재해 유발요인을 예측 및 분석하고\u003Cbr\u002F\u003E이에 대한 저감방안과 저감대책을 마련하여 재해영향을 최소화 하기 위한 제도"]}}],fetch:{},mutations:[]});
