@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[22],{461:function(n,t,e){"use strict";e.r(t),t.default={title:"소규모재해영향평가",descriptions:["재해영향평가에 해당되는 개발사업 중 특정 규모의 사업에 대해 평가를 실시하되 각종 예측, 분석 항목 중 일부를 축소하여 절차를 간소화 한 제도"]}}}]);
