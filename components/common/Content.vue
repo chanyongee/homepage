@@ -21,7 +21,7 @@
     }
   }
 
-  @include media('<xlarge-desktop') {
+  @include media('<xxlarge-desktop') {
     .content {
       padding: 4rem 14rem;
     }

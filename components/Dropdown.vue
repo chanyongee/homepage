@@ -1,6 +1,6 @@
 <template>
   <ul v-if="opened" class="dropdown">
-    <li v-for="menu in _list" :key="menu.name" @click="moveTo(menu.defaultPath || getPath(menu.path))">
+    <li v-for="menu in _list" :key="menu.name" @click="move(menu)">
       {{ menu.name }}
     </li>
   </ul>
@@ -19,20 +19,16 @@
       },
     },
     methods: {
-      getPath(endpoint) {
-        if (!endpoint) {
-          return
+      move({ defaultPath, path, hash }) {
+        if (defaultPath) {
+          const current = this.$route.path.split('/').slice(1)
+          current[current.length - 1] = defaultPath
+          return '/' + current.join('/')
+        } else {
+          const _path = hash ? path + '#' + hash : path
+          this.$emit('closeDropdown')
+          this.$router.push(_path)
         }
-        const current = this.$route.path.split('/').slice(1)
-        current[current.length - 1] = endpoint
-        return '/' + current.join('/')
-      },
-      moveTo(path) {
-        if (!path) {
-          return
-        }
-        this.$emit('closeDropdown')
-        this.$router.push(path)
       },
     },
     computed: {

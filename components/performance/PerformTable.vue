@@ -56,7 +56,7 @@
     computed: {
       ...mapState(['isPhone']),
       rowPerPage() {
-        return this.isPhone ? 10 : 15
+        return this.isPhone ? 15 : 20
       },
       pageCount() {
         return Math.ceil(this.data.body.length / this.rowPerPage)
@@ -78,19 +78,22 @@
 <style lang="scss" scoped>
   .table-wrapper {
     table {
-      border-top: 2px solid #126bb1;
+      border-top: 2px solid #ddd;
+      border-bottom: 2px solid #ddd;
       width: 100%;
 
       tr {
         th {
-          background: #f3f7fb;
-          border: 1px solid #ddd;
+          border-top: 1px solid #ddd;
+          border-bottom: 1px solid #ddd;
           padding: 1rem 0;
+          font-weight: 500;
         }
 
         td {
           padding: 0.5rem;
-          border: 1px solid #ddd;
+          border-top: 1px solid #ddd;
+          border-bottom: 1px solid #ddd;
           text-align: center;
           min-width: 9.375rem;
         }

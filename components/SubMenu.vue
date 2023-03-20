@@ -24,6 +24,7 @@
             <nuxt-link
               :is="grandchild.path ? 'nuxt-link' : 'span'"
               :to="getPath([selectedMenu.path, child.path, grandchild.path])"
+              :hash="selectedMenu.hash || false"
             >
               {{ grandchild.name }}
             </nuxt-link>
@@ -35,7 +36,6 @@
 </template>
 
 <script>
-  import { mapMutations } from 'vuex'
   export default {
     props: {
       menuOpened: {
@@ -48,10 +48,6 @@
       },
     },
     methods: {
-      ...mapMutations(['setBreadcrumbs']),
-      changeBreadcrumbs(child, grandchild) {
-        this.setBreadcrumbs([this.selectedMenu.name, child, grandchild])
-      },
       getPath(pathList) {
         const _pathList = pathList.filter(path => path)
         return '/' + _pathList.join('/')

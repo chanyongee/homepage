@@ -22,7 +22,8 @@
     },
     methods: {
       ...mapMutations(['setBreadcrumbs', 'setIsPhone']),
-      findBreadcrumbs(path) {
+      findBreadcrumbs(path, hash) {
+        console.log(path)
         const breadcrumbs = path.split('/').slice(1)
         const breadcrumbsKo = []
         breadcrumbs.forEach((crumb, i) => {
@@ -35,6 +36,9 @@
             breadcrumbsKo.push(this.menuList.find(menu => menu.path === crumb))
           }
         })
+        // if (hash) {
+        //   breadcrumbsKo[breadcrumbsKo.length - 1].hash = hash
+        // }
         this.setBreadcrumbs(breadcrumbsKo)
       },
       handleResize() {
@@ -45,12 +49,14 @@
       window.addEventListener('resize', throttle(this.handleResize, 300))
     },
     mounted() {
-      this.findBreadcrumbs(this.$route.path)
+      console.log(this.$route)
+      const { path, hash } = this.$route
+      this.findBreadcrumbs(path, hash)
       this.handleResize()
     },
     watch: {
-      $route(to) {
-        this.findBreadcrumbs(to.path)
+      $route({ path, hash }) {
+        this.findBreadcrumbs(path, hash)
       },
     },
   }

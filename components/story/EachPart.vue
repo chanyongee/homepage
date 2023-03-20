@@ -1,26 +1,30 @@
 <template>
   <div class="contents-wrapper">
-    <h1>{{ data.title }}</h1>
-    <div v-if="data.descriptions" class="desc-list">
-      <div v-for="(desc, index) in data.descriptions" :key="index" v-html="desc"></div>
-    </div>
-    <div v-if="data.subItems" class="sub-item-list">
-      <div v-for="subItem in data.subItems" :key="subItem.title" class="sub-item-wrapper">
-        <h3>・ {{ subItem.title }}</h3>
-        <div v-for="(desc, index) in subItem.descriptions" :key="index" class="sub-item">{{ desc }}</div>
+    <section v-for="part in data" :key="part.title">
+      <h1 :id="part.title">
+        {{ part.title }}
+      </h1>
+      <div v-if="part.descriptions" class="desc-list">
+        <div v-for="(desc, index) in part.descriptions" :key="index" v-html="desc"></div>
       </div>
-    </div>
-    <div v-if="data.diagram">
-      <h3>・ {{ data.diagramName }}</h3>
-      <img class="diagram-img" :src="require(`@@/assets/images/${data.diagram}`)" alt="" />
-    </div>
-    <img class="cover-img" v-if="data.cover" :src="require(`@@/assets/images/${data.cover}`)" alt="" />
-    <div class="button-wrapper">
-      <button @click="$router.push(performancePage)">
-        실적 보러가기
-        <Arrow />
-      </button>
-    </div>
+      <div v-if="part.subItems" class="sub-item-list">
+        <div v-for="subItem in part.subItems" :key="subItem.title" class="sub-item-wrapper">
+          <h3>・ {{ subItem.title }}</h3>
+          <div v-for="(desc, index) in subItem.descriptions" :key="index" class="sub-item">{{ desc }}</div>
+        </div>
+      </div>
+      <div v-if="part.diagram">
+        <h3>・ {{ part.diagramName }}</h3>
+        <img class="diagram-img" :src="require(`@@/assets/images/${part.diagram}`)" alt="" />
+      </div>
+      <img class="cover-img" v-if="part.cover" :src="require(`@@/assets/images/${part.cover}`)" alt="" />
+      <div class="button-wrapper">
+        <button @click="$router.push(performancePage)">
+          실적 보러가기
+          <Arrow />
+        </button>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -34,8 +38,8 @@
     },
     props: {
       data: {
-        type: Object,
-        default: () => {},
+        type: Array,
+        default: () => [],
       },
     },
     computed: {
@@ -50,7 +54,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .contents-wrapper {
+  section {
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -107,7 +111,7 @@
   }
 
   @include media('<desktop') {
-    .contents-wrapper {
+    section {
       .diagram-img {
         width: 80%;
       }
@@ -115,7 +119,7 @@
   }
 
   @include media('<tablet') {
-    .contents-wrapper {
+    section {
       gap: 0.5rem;
 
       .desc-list,

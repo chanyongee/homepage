@@ -22,9 +22,9 @@ export default [
         defaultPath: '/story/disaster/intro',
         children: [
           { name: '소개', path: 'intro' },
-          { name: '재해영향평가', path: 'disaster' },
-          { name: '소규모재해영향평가', path: 'small-scale' },
-          { name: '사전재해영향성검토', path: 'pre' },
+          { name: '재해영향평가', path: 'disaster', hash: '재해영향평가' },
+          { name: '소규모재해영향평가', path: 'disaster', hash: '소규모재해영향평가' },
+          { name: '재해영향성검토', path: 'disaster', hash: '재해영향성검토' },
         ],
       },
       {

@@ -9,11 +9,10 @@
       </div>
     </h1>
     <div class="desc" v-html="data.desc"></div>
-    <div class="sub-desc" v-html="data.subDesc">
-      {{ data.subDesc }}
-    </div>
+    <div class="sub-desc" v-html="data.subDesc"></div>
     <h2>・ {{ data.diagramName }}</h2>
     <img class="diagram" :src="require(`@@/assets/images/${data.diagram}`)" alt="" />
+    <img :src="require(`@@/assets/images/${data.cover}`)" alt="" />
   </div>
 </template>
 
