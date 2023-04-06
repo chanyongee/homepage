@@ -8,6 +8,12 @@
       @mouseleave="closeDropdown"
     >
       {{ parse(crumb.name) }}
+      <!-- <span>&nbsp;{{ opened[index] ? '⏤' : '🞡' }}</span> -->
+      <div class="icon" :class="{ opened: opened[index] }">
+        &nbsp;
+        <MinusIcon v-if="opened[index]" />
+        <PlusIcon v-else />
+      </div>
       <dropdown
         :opened="opened[index]"
         :list="index ? breadcrumbs[index - 1].children : firstCrumb"
@@ -21,10 +27,14 @@
   import { mapState } from 'vuex'
   import Dropdown from '@@/components/Dropdown'
   import menuList from '@@/assets/data/menuList'
+  import PlusIcon from '@@/assets/icons/icon_plus.svg?inline'
+  import MinusIcon from '@@/assets/icons/icon_minus.svg?inline'
 
   export default {
     components: {
       Dropdown,
+      PlusIcon,
+      MinusIcon,
     },
     data() {
       return {
@@ -77,6 +87,12 @@
       align-items: center;
       min-width: 16rem;
       position: relative;
+
+      .icon.opened {
+        &::v-deep svg line:nth-child(2) {
+          stroke: transparent;
+        }
+      }
     }
   }
 
