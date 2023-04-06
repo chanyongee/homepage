@@ -91,7 +91,7 @@
 
             &::v-deep {
               svg {
-                transform: rotate(90deg) scale(1.25);
+                transform: rotate(90deg) scale(1.5);
                 path {
                   fill: #848c8c;
                 }
