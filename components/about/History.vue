@@ -75,7 +75,6 @@
         },
       )
       this.$refs.item.forEach(item => {
-        console.log(item.$refs['history-content'])
         io.observe(item.$refs['history-content'])
       })
     },

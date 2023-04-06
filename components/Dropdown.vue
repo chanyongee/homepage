@@ -18,7 +18,6 @@
     },
     methods: {
       move({ defaultPath, path, hash }) {
-        console.log(defaultPath, path, hash)
         if (defaultPath) {
           this.$router.push(defaultPath)
         } else if (path) {
