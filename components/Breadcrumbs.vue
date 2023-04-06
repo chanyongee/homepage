@@ -7,7 +7,7 @@
       @mouseenter="openDropdown(index)"
       @mouseleave="closeDropdown"
     >
-      {{ crumb.name }}
+      {{ parse(crumb.name) }}
       <dropdown
         :opened="opened[index]"
         :list="index ? breadcrumbs[index - 1].children : firstCrumb"
@@ -51,6 +51,9 @@
       closeDropdown() {
         this.opened = [false, false, false]
         this.openedIndex = -1
+      },
+      parse(name) {
+        return name.replace('<br/>', '')
       },
     },
   }

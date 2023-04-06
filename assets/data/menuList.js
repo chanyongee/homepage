@@ -81,7 +81,7 @@ export default [
         defaultPath: '/story/permission/environment',
         children: [
           { name: '환경인허가', path: 'environment' },
-          { name: '환경전문공사(수질대기) 및 수질환경관리', path: 'water' },
+          { name: '환경전문공사(수질대기)<br/> 및 수질환경관리', path: 'water' },
           { name: '수질측정기기관리', path: 'water-measurement' },
         ],
       },

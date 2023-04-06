@@ -1,8 +1,6 @@
 <template>
   <ul v-if="opened" class="dropdown">
-    <li v-for="menu in _list" :key="menu.name" @click="move(menu)">
-      {{ menu.name }}
-    </li>
+    <li v-for="menu in _list" :key="menu.name" @click="move(menu)" v-html="menu.name"></li>
   </ul>
 </template>
 
@@ -55,6 +53,7 @@
 
     li {
       cursor: pointer;
+      text-align: center;
     }
   }
 

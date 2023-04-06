@@ -63,15 +63,15 @@
       const io = new IntersectionObserver(
         entries => {
           entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            if (entry.intersectionRatio >= 0.7) {
               entry.target.className = 'history-content visible'
-            } else {
+            } else if (entry.intersectionRatio === 0) {
               entry.target.className = 'history-content'
             }
           })
         },
         {
-          threshold: 0.7,
+          threshold: [0, 0.7],
         },
       )
       this.$refs.item.forEach(item => {
