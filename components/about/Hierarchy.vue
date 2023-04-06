@@ -1,7 +1,7 @@
 <template>
   <Content>
     <h1>조직도</h1>
-    <img :src="require('@@/assets/images/조직도.png')" alt="" />
+    <img :src="require('@@/assets/images/조직도.webp')" alt="" />
   </Content>
 </template>
 
@@ -19,7 +19,7 @@
     margin-bottom: 4rem;
   }
   img {
-    width: 70%;
+    width: 100%;
   }
 
   @include media('<tablet') {

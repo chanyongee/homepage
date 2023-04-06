@@ -30,4 +30,10 @@
   }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+</style>

@@ -32,6 +32,6 @@ export default [
       },
     ],
     diagramName: '안전진단 공정도',
-    diagram: 'diagram/안전진단공정도.png',
+    diagram: 'diagram/안전진단공정도.webp',
   },
 ]

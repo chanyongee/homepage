@@ -7,7 +7,7 @@
         <sub>{{ content.signature }}</sub>
       </section>
       <section v-if="!isPhone" class="right">
-        <img :src="require('@@/assets/images/about_us.jpg')" alt="" />
+        <img :src="require('@@/assets/images/about_us.webp')" alt="" />
       </section>
     </section>
   </Content>
@@ -67,7 +67,6 @@
     .right {
       display: flex;
       flex-basis: 50%;
-      align-items: center;
 
       img {
         object-fit: cover;

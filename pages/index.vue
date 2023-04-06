@@ -1,18 +1,23 @@
 <template>
   <div class="home-background">
-    <video :src="video" autoplay muted loop></video>
+    <video :src="video" autoplay muted loop playsinline></video>
     <section id="section1">
       <h1>
         BUILD VALUE
         <br />
         TOGETHER
       </h1>
-      <h4>Sustainable Business & Unlimited Innvation With Joeun Engineering</h4>
+      <h4>
+        Sustainable Business &
+        <br v-if="isPhone" />
+        Unlimited Innovation With Joeun Engineering
+      </h4>
     </section>
   </div>
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   import video from '@@/assets/park.mp4'
 
   export default {
@@ -20,6 +25,9 @@
       return {
         video,
       }
+    },
+    computed: {
+      ...mapState(['isPhone']),
     },
   }
 </script>

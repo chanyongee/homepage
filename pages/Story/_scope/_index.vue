@@ -13,9 +13,11 @@
     async asyncData({ params }) {
       const ret = {}
       const { scope, index } = params
-      await import(`@@/assets/data/story/${scope}/${index}`).then(module => {
-        ret.data = module.default
-      })
+      await import(`@@/assets/data/story/${scope}/${index}`)
+        .then(module => {
+          ret.data = module.default
+        })
+        .catch(() => {})
       return ret
     },
     components: {

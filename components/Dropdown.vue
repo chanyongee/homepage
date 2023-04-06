@@ -20,11 +20,10 @@
     },
     methods: {
       move({ defaultPath, path, hash }) {
+        console.log(defaultPath, path, hash)
         if (defaultPath) {
-          const current = this.$route.path.split('/').slice(1)
-          current[current.length - 1] = defaultPath
-          return '/' + current.join('/')
-        } else {
+          this.$router.push(defaultPath)
+        } else if (path) {
           const _path = hash ? path + '#' + hash : path
           this.$emit('closeDropdown')
           this.$router.push(_path)

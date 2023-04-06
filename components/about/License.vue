@@ -1,7 +1,7 @@
 <template>
   <Content>
     <section>
-      <h1>면허 현황</h1>
+      <h2>면허 현황</h2>
       <table class="table">
         <tbody>
           <tr>
@@ -53,18 +53,21 @@
 <style lang="scss" scoped>
   section {
     margin-bottom: 4rem;
-    h1 {
+    h2 {
       margin-bottom: 2rem;
     }
 
     .table {
-      border-top: 2px solid #126bb1;
+      border-top: 2px solid #ddd;
+      border-bottom: 2px solid #ddd;
       width: 100%;
 
       tr {
         th {
-          background: #f3f7fb;
-          border: 1px solid #ddd;
+          border-top: 1px solid #ddd;
+          border-bottom: 1px solid #ddd;
+          font-weight: 500;
+
           padding: 1rem 0;
 
           &:first-child {
@@ -73,8 +76,9 @@
         }
 
         td {
+          border-top: 1px solid #ddd;
+          border-bottom: 1px solid #ddd;
           padding: 0.5rem;
-          border: 1px solid #ddd;
           text-align: center;
         }
       }

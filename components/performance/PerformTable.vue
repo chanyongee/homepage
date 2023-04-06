@@ -56,7 +56,7 @@
     computed: {
       ...mapState(['isPhone']),
       rowPerPage() {
-        return this.isPhone ? 15 : 20
+        return this.isPhone ? 10 : 15
       },
       pageCount() {
         return Math.ceil(this.data.body.length / this.rowPerPage)

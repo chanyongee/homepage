@@ -153,7 +153,7 @@
     }
 
     &:not(.main-page) {
-      background: url(~@@/assets/images/house.jpg) top 40% left 0% no-repeat;
+      background: url(~@@/assets/images/house.webp) top 40% left 0% no-repeat;
       background-size: cover;
       width: 100%;
       min-height: 25rem;
@@ -161,12 +161,10 @@
 
       .header-top {
         .logo-wrapper {
-          .logo {
-            &::v-deep {
-              svg {
-                path:not(:first-child) {
-                  fill: #5f6a6a;
-                }
+          .logo::v-deep {
+            svg {
+              path:not(:first-child) {
+                fill: #5f6a6a;
               }
             }
 
@@ -174,18 +172,6 @@
               color: #5f6a6a;
             }
           }
-
-          // &.white {
-          //   .logo {
-          //     &::v-deep {
-          //       svg {
-          //         path:not(:first-child) {
-          //           fill: $default-black;
-          //         }
-          //       }
-          //     }
-          //   }
-          // }
         }
       }
     }

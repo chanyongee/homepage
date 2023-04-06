@@ -29,13 +29,14 @@
     }
 
     span {
+      font-family: Logo;
       text-align: center;
-      letter-spacing: -2.5px;
+      letter-spacing: -2px;
       margin-top: -0.125rem;
       position: absolute;
       right: 0;
       bottom: 0;
-      font-weight: 500;
+      font-weight: bold;
     }
   }
 </style>

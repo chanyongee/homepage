@@ -1,5 +1,37 @@
 export default [
   {
+    name: '회사소개',
+    path: 'about',
+    defaultPath: '/about/intro',
+    children: [
+      {
+        children: [
+          {
+            name: '회사소개',
+            path: 'intro',
+          },
+          {
+            name: '주요연혁',
+            path: 'history',
+          },
+          {
+            name: '면허현황',
+            path: 'licenses',
+          },
+          {
+            name: '조직도',
+            path: 'hierarchy',
+          },
+          {
+            name: '오시는길',
+            path: 'map',
+          },
+        ],
+      },
+    ],
+    oneColumn: true,
+  },
+  {
     name: '사업영역',
     path: 'story',
     defaultPath: '/story/environment/intro',
@@ -10,10 +42,10 @@ export default [
         defaultPath: '/story/environment/intro',
         children: [
           { name: '소개', path: 'intro' },
-          { name: '환경영향평가', path: 'environment' },
-          { name: '전략환경영향평가', path: 'strategic' },
-          { name: '소규모환경영향평가', path: 'small-scale' },
-          { name: '사후환경영향조사', path: 'post' },
+          { name: '환경영향평가', path: 'environment', hash: '환경영향평가' },
+          { name: '전략환경영향평가', path: 'environment', hash: '전략환경영향평가' },
+          { name: '소규모환경영향평가', path: 'environment', hash: '소규모환경영향평가' },
+          { name: '사후환경영향조사', path: 'environment', hash: '사후환경영향조사' },
         ],
       },
       {
@@ -103,37 +135,5 @@ export default [
         ],
       },
     ],
-  },
-  {
-    name: '회사소개',
-    path: 'about',
-    defaultPath: '/about/intro',
-    children: [
-      {
-        children: [
-          {
-            name: '회사소개',
-            path: 'intro',
-          },
-          {
-            name: '주요연혁',
-            path: 'history',
-          },
-          {
-            name: '면허현황',
-            path: 'licenses',
-          },
-          {
-            name: '조직도',
-            path: 'hierarchy',
-          },
-          {
-            name: '오시는길',
-            path: 'map',
-          },
-        ],
-      },
-    ],
-    oneColumn: true,
   },
 ]

@@ -22,8 +22,7 @@
     },
     methods: {
       ...mapMutations(['setBreadcrumbs', 'setIsPhone']),
-      findBreadcrumbs(path, hash) {
-        console.log(path)
+      findBreadcrumbs(path) {
         const breadcrumbs = path.split('/').slice(1)
         const breadcrumbsKo = []
         breadcrumbs.forEach((crumb, i) => {
@@ -36,9 +35,6 @@
             breadcrumbsKo.push(this.menuList.find(menu => menu.path === crumb))
           }
         })
-        // if (hash) {
-        //   breadcrumbsKo[breadcrumbsKo.length - 1].hash = hash
-        // }
         this.setBreadcrumbs(breadcrumbsKo)
       },
       handleResize() {
@@ -49,14 +45,13 @@
       window.addEventListener('resize', throttle(this.handleResize, 300))
     },
     mounted() {
-      console.log(this.$route)
       const { path, hash } = this.$route
       this.findBreadcrumbs(path, hash)
       this.handleResize()
     },
     watch: {
-      $route({ path, hash }) {
-        this.findBreadcrumbs(path, hash)
+      $route({ path }) {
+        this.findBreadcrumbs(path)
       },
     },
   }
@@ -91,7 +86,7 @@
 
   @font-face {
     font-family: 'Logo';
-    src: url('../assets/fonts/Gugi-Regular.ttf') format('truetype');
+    src: url('../assets/fonts/GowunDodum-Regular.ttf') format('truetype');
   }
 
   html {
@@ -109,6 +104,14 @@
     margin: 0;
   }
 
+  html,
+  body,
+  #__nuxt,
+  #__layout,
+  #app {
+    height: 100%;
+  }
+
   a {
     text-decoration: none;
     color: inherit;
@@ -117,6 +120,7 @@
   ul {
     margin: 0;
     padding: 0;
+
     li {
       list-style-type: none;
     }

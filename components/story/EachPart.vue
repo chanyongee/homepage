@@ -9,8 +9,13 @@
       </div>
       <div v-if="part.subItems" class="sub-item-list">
         <div v-for="subItem in part.subItems" :key="subItem.title" class="sub-item-wrapper">
-          <h3>・ {{ subItem.title }}</h3>
-          <div v-for="(desc, index) in subItem.descriptions" :key="index" class="sub-item">{{ desc }}</div>
+          <div>
+            <Milestone />
+            <h3>{{ subItem.title }}</h3>
+          </div>
+          <ul>
+            <li v-for="(desc, index) in subItem.descriptions" :key="index" v-html="desc"></li>
+          </ul>
         </div>
       </div>
       <div v-if="part.diagram">
@@ -31,10 +36,12 @@
 <script>
   import { mapState } from 'vuex'
   import Arrow from '@@/assets/icons/t-icon-long-left.svg?inline'
+  import Milestone from '@@/assets/icons/icon_milestone.svg?inline'
 
   export default {
     components: {
       Arrow,
+      Milestone,
     },
     props: {
       data: {
@@ -54,88 +61,127 @@
 </script>
 
 <style lang="scss" scoped>
-  section {
+  .contents-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
 
-    h3 {
-      margin-bottom: 0.5rem;
-    }
-
-    .sub-item-wrapper {
-      margin-bottom: 0.5rem;
-    }
-
-    .cover-img {
-      width: 100%;
-    }
-
-    .diagram-img {
-      display: block;
-      margin: 0 auto;
-      width: 60%;
-    }
-
-    .button-wrapper {
+    section {
       display: flex;
-      justify-content: flex-end;
-      width: 100%;
-      margin-top: 2rem;
+      flex-direction: column;
+      gap: 2.5rem;
 
-      button {
-        cursor: pointer;
-        background: $default-white;
-        font-weight: 700;
-        border: 1px solid $default-black;
-        width: 12.5rem;
-        height: 3rem;
-        transition: all 0.2s ease;
+      .desc-list {
+        background: #fafafa;
+        padding: 1.125rem;
+        font-size: 1.125rem;
+        border-radius: 0.625rem;
+        border: 1px solid $grey;
+      }
 
-        &:hover {
-          background: $default-black;
-          color: $default-white;
+      .sub-item-list {
+        .sub-item-wrapper {
+          margin-bottom: 3rem;
 
-          svg {
-            path {
-              fill: $default-white;
+          div {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            margin-bottom: 0.5rem;
+
+            &::v-deep {
+              svg {
+                transform: rotate(90deg) scale(1.25);
+                path {
+                  fill: #848c8c;
+                }
+              }
             }
           }
         }
+      }
 
-        svg {
-          transform: rotate(0.5turn);
+      .cover-img {
+        width: 100%;
+      }
+
+      .diagram-img {
+        display: block;
+        margin: 1rem auto 0 auto;
+        width: 60%;
+      }
+
+      .button-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        margin-top: 2rem;
+
+        button {
+          cursor: pointer;
+          background: $default-white;
+          font-weight: 700;
+          border: 1px solid $default-black;
+          width: 22rem;
+          height: 4rem;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background: $default-black;
+            color: $default-white;
+
+            svg {
+              path {
+                fill: $default-white;
+              }
+            }
+          }
+
+          svg {
+            transform: rotate(0.5turn);
+          }
         }
       }
     }
   }
 
   @include media('<desktop') {
-    section {
-      .diagram-img {
-        width: 80%;
+    .contents-wrapper {
+      section {
+        .diagram-img {
+          width: 80%;
+        }
       }
     }
   }
 
   @include media('<tablet') {
-    section {
-      gap: 0.5rem;
+    .contents-wrapper {
+      gap: 1.5rem;
+      section {
+        gap: 0.5rem;
 
-      .desc-list,
-      .sub-item-list {
-        font-size: 1rem;
-        line-height: 1.5625rem;
-      }
+        .desc-list {
+          margin-bottom: 0.5rem;
+        }
 
-      .diagram-img {
-        width: 100%;
-      }
+        .desc-list,
+        .sub-item-list {
+          font-size: 1rem;
+          line-height: 1.5625rem;
+        }
 
-      .button-wrapper {
-        button {
-          width: 10rem;
-          height: 2.5rem;
+        .diagram-img {
+          width: 100%;
+        }
+
+        .button-wrapper {
+          margin-top: 0;
+
+          button {
+            width: 100%;
+            height: 2.5rem;
+          }
         }
       }
     }

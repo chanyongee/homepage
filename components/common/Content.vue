@@ -44,6 +44,7 @@
       padding: 1rem;
       font-size: 1rem;
       padding-top: 8.5rem;
+      min-height: 80%;
 
       h1 {
         margin-bottom: 1rem;

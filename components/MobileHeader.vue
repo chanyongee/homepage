@@ -62,7 +62,7 @@
     padding: 1rem;
 
     &:not(.main-page) {
-      background: url(~@@/assets/images/house.jpg);
+      background: url(~@@/assets/images/house.webp);
     }
 
     .logo {

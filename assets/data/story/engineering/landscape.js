@@ -7,7 +7,7 @@ export default [
     ],
     subItems: [
       {
-        title: '조경분야 업무영역',
+        title: '업무영역',
         descriptions: [
           '도시설계 : 마을만들기 사업 기본 및 설계',
           '도시개발 : 도시개발사업 및 주택 개발 사업 시 기반시설인 공원 및 녹지 등 계획, 설계',
@@ -24,6 +24,6 @@ export default [
       },
     ],
     diagramName: '조경절차도',
-    diagram: '조경절차도.png',
+    diagram: '조경절차도.webp',
   },
 ]
