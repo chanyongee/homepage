@@ -18,6 +18,7 @@
     },
     methods: {
       move({ defaultPath, path, hash }) {
+        this.$emit('closeDropdown')
         if (defaultPath) {
           this.$router.push(defaultPath)
         } else if (path) {
@@ -52,7 +53,7 @@
 
     li {
       cursor: pointer;
-      text-align: center;
+      text-align: left;
     }
   }
 

@@ -3,7 +3,7 @@ export default {
   target: 'static',
   server: { host: '0', port: 3001 },
   router: {
-    base: '/homepage/',
+    base: '/',
   },
   styleResources: {
     scss: ['./assets/scss/index.scss'],
@@ -13,7 +13,7 @@ export default {
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'joeun',
+    title: '(주)좋은이엔지',
     script: [
       { src: 'https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=0d9nbomngk', async: false, defer: true },
       {
@@ -30,6 +30,7 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
+      { name: 'google', content: 'notranslate' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },

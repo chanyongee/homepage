@@ -1,9 +1,9 @@
 <template>
   <li @click.stop="opened = !opened">
-    <div class="item" :class="isChild ? 'item-child' : 'item-parent'">
+    <div class="item" :class="[isChild ? 'item-child' : 'item-parent', { up: opened }]">
       <span>{{ name }}</span>
       <div class="icon">
-        <IconArrow :class="{ up: opened }" />
+        <IconArrow />
       </div>
     </div>
     <template v-if="opened">
@@ -79,32 +79,46 @@
     .item {
       display: flex;
       justify-content: space-between;
+
+      &.up {
+        span {
+          color: #8a9a5b;
+        }
+
+        svg {
+          transform: rotate(0.5turn);
+        }
+      }
+
+      span {
+        align-items: center;
+        display: flex;
+        font-weight: 500;
+      }
+
       &-parent {
+        font-weight: 500;
         padding: 0.5rem 1rem;
 
         .icon {
           width: 1.5rem;
           height: 1.5rem;
-          svg {
-            &.up {
-              transform: rotate(0.5turn);
-            }
-          }
         }
       }
 
       &-child {
-        background: #f2f2f2;
+        background: #f5f5f5;
         padding: 0.5rem 1.5rem;
       }
     }
 
     ul {
-      background: rgb(0, 0, 0, 0.02);
+      background: #f5f5f5;
+
       .smallest-item {
         font-size: 0.8rem;
         list-style: circle;
-        padding: 0.3rem 2rem;
+        padding: 0.5rem 2rem;
       }
     }
   }

@@ -1,13 +1,13 @@
 <template>
-  <div v-if="!headerOpened" class="top" :class="{ 'main-page': $route.name === 'index' }">
+  <div v-if="!isMobileHeaderOpened" class="top" :class="{ 'main-page': $route.name === 'index' }">
     <Logo class="logo" @click="$router.push('/')" />
-    <Hamburger class="hamburger" @click="headerOpened = true" />
+    <Hamburger class="hamburger" @click="setIsMobileHeaderOpened(true)" />
     <breadcrumbs />
   </div>
   <div v-else class="panel">
     <div class="logo-wrapper">
       <Logo class="logo" />
-      <Close class="close" @click="headerOpened = false" />
+      <Close class="close" @click="setIsMobileHeaderOpened(false)" />
     </div>
     <div class="menu-wrapper">
       <MobileHeaderItem
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+  import { mapState, mapMutations } from 'vuex'
   import Hamburger from '@@/assets/icons/bars-solid.svg?inline'
   import Close from '@@/assets/icons/close.svg?inline'
   import Logo from '@@/assets/icons/joeun_logo.svg?inline'
@@ -40,13 +41,16 @@
     },
     data() {
       return {
-        headerOpened: false,
         menuList,
       }
     },
+    computed: {
+      ...mapState(['isMobileHeaderOpened']),
+    },
     methods: {
+      ...mapMutations(['setIsMobileHeaderOpened']),
       close() {
-        this.headerOpened = false
+        this.setIsMobileHeaderOpened(false)
       },
     },
   }
@@ -88,8 +92,8 @@
     width: 100%;
     height: 100%;
     background: #fff;
-    z-index: 1;
-    overflow: auto;
+    z-index: 2;
+    overflow: hidden auto;
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
     ::-webkit-scrollbar {

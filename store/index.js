@@ -1,6 +1,7 @@
 export const state = () => ({
   breadcrumbs: [],
   isPhone: false,
+  isMobileHeaderOpened: false,
 })
 
 export const mutations = {
@@ -9,5 +10,8 @@ export const mutations = {
   },
   setIsPhone(state, val) {
     state.isPhone = val
+  },
+  setIsMobileHeaderOpened(state, val) {
+    state.isMobileHeaderOpened = val
   },
 }

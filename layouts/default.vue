@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="app">
+  <div id="app" class="app" :class="{ noscroll: isMobileHeaderOpened }">
     <Header v-if="!isPhone" />
     <MobileHeader v-else />
     <Nuxt />
@@ -18,7 +18,7 @@
       }
     },
     computed: {
-      ...mapState(['isPhone']),
+      ...mapState(['isPhone', 'isMobileHeaderOpened']),
     },
     methods: {
       ...mapMutations(['setBreadcrumbs', 'setIsPhone']),
@@ -110,6 +110,12 @@
   #__layout,
   #app {
     height: 100%;
+  }
+
+  #app {
+    &.noscroll {
+      overflow: hidden;
+    }
   }
 
   a {
