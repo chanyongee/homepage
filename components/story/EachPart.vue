@@ -156,7 +156,7 @@
 
   @include media('<tablet') {
     .contents-wrapper {
-      gap: 1.5rem;
+      gap: 2rem;
       section {
         gap: 0.5rem;
 
@@ -170,8 +170,15 @@
           line-height: 1.5625rem;
         }
 
+        .sub-item-list {
+          .sub-item-wrapper {
+            margin-bottom: 2rem;
+          }
+        }
+
         .diagram-img {
           width: 100%;
+          margin-bottom: 0.5rem;
         }
 
         .button-wrapper {

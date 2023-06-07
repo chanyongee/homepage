@@ -88,9 +88,13 @@
       min-width: 16rem;
       position: relative;
 
-      .icon.opened {
-        &::v-deep svg line:nth-child(2) {
-          stroke: transparent;
+      .icon {
+        display: flex;
+        align-items: center;
+        &.opened {
+          &::v-deep svg line:nth-child(2) {
+            stroke: transparent;
+          }
         }
       }
     }
