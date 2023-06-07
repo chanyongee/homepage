@@ -64,7 +64,7 @@
   .contents-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 3rem;
 
     section {
       display: flex;
@@ -115,7 +115,6 @@
         display: flex;
         justify-content: flex-end;
         width: 100%;
-        margin-top: 2rem;
 
         button {
           cursor: pointer;
