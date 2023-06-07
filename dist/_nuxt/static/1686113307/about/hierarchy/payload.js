@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/about/hierarchy", {data:[{content:null,index:"hierarchy"}],fetch:{},mutations:[]});
