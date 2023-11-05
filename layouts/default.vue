@@ -27,10 +27,12 @@
         const breadcrumbsKo = []
         breadcrumbs.forEach((crumb, i) => {
           if (i) {
-            const _children = breadcrumbsKo[i - 1].children[0].path
-              ? breadcrumbsKo[i - 1].children
-              : breadcrumbsKo[i - 1].children[0].children
-            breadcrumbsKo.push(_children.find(menu => menu.path === crumb))
+            if ('children' in breadcrumbsKo[i - 1]) {
+              const _children = breadcrumbsKo[i - 1].children[0].path
+                ? breadcrumbsKo[i - 1].children
+                : breadcrumbsKo[i - 1].children[0].children
+              breadcrumbsKo.push(_children.find(menu => menu.path === crumb))
+            }
           } else {
             breadcrumbsKo.push(this.menuList.find(menu => menu.path === crumb))
           }

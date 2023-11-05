@@ -23,8 +23,15 @@
           this.$router.push(defaultPath)
         } else if (path) {
           const _path = hash ? path + '#' + hash : path
+          const isTrailingSlash = this.$route.path.slice(-1) === '/'
+          if (isTrailingSlash) {
+            const newPath = this.$route.path.split('/').filter(item => item)
+            newPath.splice(-1, 1, _path)
+            this.$router.push('/' + newPath.join('/'))
+          } else {
+            this.$router.push(_path)
+          }
           this.$emit('closeDropdown')
-          this.$router.push(_path)
         }
       },
     },

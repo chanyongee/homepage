@@ -4,6 +4,7 @@ export default {
   server: { host: '0', port: 3001 },
   router: {
     base: '/homepage',
+    middleware: 'trailingSlashRedirect',
   },
   styleResources: {
     scss: ['./assets/scss/index.scss'],
@@ -14,16 +15,8 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: '(주)좋은이엔지',
-    script: [
-      { src: 'https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=0d9nbomngk', async: false, defer: true },
-      {
-        src: 'https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js',
-        charset: 'UTF-8',
-        class: 'daum_roughmap_loader_script',
-      },
-    ],
     htmlAttrs: {
-      lang: 'en',
+      lang: 'ko',
     },
     meta: [
       { charset: 'utf-8' },

@@ -39,40 +39,48 @@
         type: Array,
         default: () => [],
       },
+      isNaverLoaded: {
+        type: Boolean,
+        default: false,
+      },
     },
     data() {
       return {
         map: null,
-        mapOptions: {
-          center: new naver.maps.LatLng(36.99551962555831, 127.92589728914564),
-          zoom: 16,
-          minZoom: 14,
-          maxZoom: 19,
-          zoomControl: true,
-          zoomControlOptions: {
-            style: naver.maps.ZoomControlStyle.SMALL,
-            position: naver.maps.Position.BOTTOM_RIGHT,
-          },
-          scaleControl: false,
-          logoControl: false,
-          logoControlOptions: {
-            position: naver.maps.Position.TOP_RIGHT,
-          },
-          mapDataControl: true,
-          mapDataControlOptions: {
-            position: naver.maps.Position.BOTTOM_LEFT,
-          },
-        },
         marker: null,
         url: 'https://naver.me/ID1kqMFt',
       }
     },
-    mounted() {
-      this.map = new naver.maps.Map('map', this.mapOptions)
-      this.marker = new naver.maps.Marker({
-        position: this.map.getCenter(),
-        map: this.map,
-      })
+    mounted() {},
+    watch: {
+      isNaverLoaded(newVal) {
+        if (newVal) {
+          this.map = new naver.maps.Map('map', {
+            center: new naver.maps.LatLng(36.99551962555831, 127.92589728914564),
+            zoom: 16,
+            minZoom: 14,
+            maxZoom: 19,
+            zoomControl: true,
+            zoomControlOptions: {
+              style: naver.maps.ZoomControlStyle.SMALL,
+              position: naver.maps.Position.BOTTOM_RIGHT,
+            },
+            scaleControl: false,
+            logoControl: false,
+            logoControlOptions: {
+              position: naver.maps.Position.TOP_RIGHT,
+            },
+            mapDataControl: true,
+            mapDataControlOptions: {
+              position: naver.maps.Position.BOTTOM_LEFT,
+            },
+          })
+          this.marker = new naver.maps.Marker({
+            position: this.map.getCenter(),
+            map: this.map,
+          })
+        }
+      },
     },
   }
 </script>
