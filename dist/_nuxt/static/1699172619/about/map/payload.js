@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/about/map", {data:[{content:null,index:"map"}],fetch:{},mutations:[]});
